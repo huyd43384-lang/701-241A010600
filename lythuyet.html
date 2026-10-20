@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trả Lời Lý Thuyết - Bài Tập 24</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.container{
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align: center;
+    color: #0066cc;
+}
+
+h2{
+    color:#cc0000;
+    margin-top:30px;
+}
+
+pre{
+    background:#f4f4f4;
+    padding:10px;
+    overflow:auto;
+    border-left:5px solid #0066cc;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table, th, td{
+    border:1px solid black;
+}
+
+th, td{
+    padding:10px;
+    text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>PHẦN TRẢ LỜI LÝ THUYẾT</h1>
+
+<hr>
+
+<h2>Câu 1: Phân biệt position: relative và position: absolute trong CSS</h2>
+
+<h3>1. Position Relative</h3>
+
+<p>
+Position: relative dùng để định vị phần tử tương đối so với vị trí ban đầu của chính nó.
+Phần tử vẫn chiếm không gian trong bố cục trang web.
+</p>
+
+<pre>
+.box1{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+</pre>
+
+<p>
+Khi sử dụng thuộc tính trên, phần tử sẽ dịch chuyển xuống 20px và sang phải 20px
+so với vị trí gốc.
+</p>
+
+<h3>2. Position Absolute</h3>
+
+<p>
+Position: absolute dùng để định vị phần tử theo phần tử cha gần nhất có thuộc tính
+position khác static. Phần tử sẽ bị tách khỏi luồng tài liệu HTML.
+</p>
+
+<pre>
+.container{
+    position: relative;
+}
+
+.box2{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+</pre>
+
+<p>
+Phần tử box2 sẽ nằm ở góc trên bên phải của container.
+</p>
+
+<h3>3. So sánh</h3>
+
+<table>
+<tr>
+<th>Relative</th>
+<th>Absolute</th>
+</tr>
+
+<tr>
+<td>Giữ nguyên vị trí trong bố cục</td>
+<td>Tách khỏi bố cục</td>
+</tr>
+
+<tr>
+<td>Dùng để điều chỉnh vị trí nhẹ</td>
+<td>Dùng để tạo menu, popup, nút nổi</td>
+</tr>
+
+<tr>
+<td>Responsive tốt hơn</td>
+<td>Cần kiểm tra nhiều thiết bị</td>
+</tr>
+</table>
+
+<h3>4. Ảnh hưởng đến Responsive Web</h3>
+
+<p>
+Relative thường phù hợp với thiết kế Responsive vì vẫn giữ cấu trúc bố cục.
+Absolute nếu sử dụng quá nhiều có thể gây lệch giao diện trên điện thoại hoặc màn hình nhỏ.
+Khi triển khai lên Hosting cần kiểm tra giao diện trên máy tính, máy tính bảng và điện thoại.
+</p>
+
+<hr>
+
+<h2>Câu 2: Quy trình đăng ký Domain và Hosting</h2>
+
+<h3>1. Quy trình đăng ký</h3>
+
+<ol>
+
+<li>Mua tên miền (Domain).</li>
+
+<li>Thuê dịch vụ Hosting.</li>
+
+<li>Trỏ DNS của Domain đến Hosting.</li>
+
+<li>Upload mã nguồn website.</li>
+
+<li>Kiểm tra hoạt động website.</li>
+
+</ol>
+
+<h3>2. DNS là gì?</h3>
+
+<p>
+DNS (Domain Name System) là hệ thống giúp chuyển đổi tên miền dễ nhớ
+thành địa chỉ IP của máy chủ lưu trữ website.
+</p>
+
+<p>
+Ví dụ:
+</p>
+
+<pre>
+www.google.com
+↓
+142.250.xxx.xxx
+</pre>
+
+<h3>3. Công cụ triển khai miễn phí</h3>
+
+<ul>
+
+<li>GitHub Pages</li>
+
+<li>Netlify</li>
+
+<li>Vercel</li>
+
+</ul>
+
+<h3>4. Rủi ro bảo mật</h3>
+
+<ul>
+
+<li>Cấu hình DNS sai dẫn đến website không hoạt động.</li>
+
+<li>Không bật HTTPS gây mất an toàn dữ liệu.</li>
+
+<li>Cấu hình quyền truy cập sai.</li>
+
+<li>Lộ thông tin tài khoản Hosting.</li>
+
+<li>Không sử dụng mật khẩu mạnh.</li>
+
+</ul>
+
+<hr>
+
+<h2>Câu 3: So sánh let, const và var trong JavaScript</h2>
+
+<h3>1. Bảng so sánh</h3>
+
+<table>
+
+<tr>
+<th>Từ khóa</th>
+<th>Scope</th>
+<th>Hoisting</th>
+<th>Cho phép gán lại</th>
+</tr>
+
+<tr>
+<td>var</td>
+<td>Function Scope</td>
+<td>Có</td>
+<td>Có</td>
+</tr>
+
+<tr>
+<td>let</td>
+<td>Block Scope</td>
+<td>Có</td>
+<td>Có</td>
+</tr>
+
+<tr>
+<td>const</td>
+<td>Block Scope</td>
+<td>Có</td>
+<td>Không</td>
+</tr>
+
+</table>
+
+<h3>2. Ví dụ var</h3>
+
+<pre>
+console.log(a);
+
+var a = 10;
+</pre>
+
+<p>
+Kết quả:
+</p>
+
+<pre>
+undefined
+</pre>
+
+<p>
+Do var được hoisting lên đầu.
+</p>
+
+<h3>3. Ví dụ let</h3>
+
+<pre>
+console.log(b);
+
+let b = 20;
+</pre>
+
+<p>
+Kết quả:
+</p>
+
+<pre>
+ReferenceError
+</pre>
+
+<p>
+Do let nằm trong Temporal Dead Zone.
+</p>
+
+<h3>4. Ví dụ const</h3>
+
+<pre>
+const PI = 3.14;
+
+PI = 4;
+</pre>
+
+<p>
+Kết quả:
+</p>
+
+<pre>
+TypeError
+</pre>
+
+<h3>5. Gỡ lỗi bằng Chrome DevTools</h3>
+
+<ul>
+
+<li>Mở DevTools bằng phím F12.</li>
+
+<li>Xem lỗi trong tab Console.</li>
+
+<li>Sử dụng Breakpoint trong tab Sources.</li>
+
+<li>Kiểm tra Network để theo dõi tài nguyên tải về.</li>
+
+<li>Theo dõi giá trị biến trong quá trình chạy.</li>
+
+</ul>
+
+<hr>
+
+<h2>Câu 4: Event Delegation trong JavaScript</h2>
+
+<h3>1. Khái niệm</h3>
+
+<p>
+Event Delegation là kỹ thuật gắn một sự kiện lên phần tử cha thay vì gắn riêng
+cho từng phần tử con.
+</p>
+
+<p>
+Sự kiện được truyền từ phần tử con lên phần tử cha thông qua Bubbling.
+</p>
+
+<h3>2. Ví dụ</h3>
+
+HTML:
+
+<pre>
+<ul id="list">
+    <li>Sản phẩm 1</li>
+    <li>Sản phẩm 2</li>
+</ul>
+</pre>
+
+JavaScript:
+
+<pre>
+document.getElementById("list")
+.addEventListener("click", function(e){
+
+    if(e.target.tagName === "LI"){
+        alert(e.target.innerText);
+    }
+
+});
+</pre>
+
+<p>
+Khi click vào bất kỳ thẻ li nào, sự kiện sẽ được xử lý bởi ul.
+</p>
+
+<h3>3. Ứng dụng trong danh sách động</h3>
+
+<p>
+Khi JavaScript thêm mới các phần tử li sau khi trang đã tải,
+chúng vẫn có thể sử dụng sự kiện click mà không cần gắn lại Event Listener.
+</p>
+
+<h3>4. Lợi ích</h3>
+
+<ul>
+
+<li>Tiết kiệm bộ nhớ.</li>
+
+<li>Giảm số lượng Event Listener.</li>
+
+<li>Tăng hiệu năng website.</li>
+
+<li>Dễ bảo trì và mở rộng.</li>
+
+<li>Hoạt động tốt với dữ liệu động.</li>
+
+</ul>
+
+<h3>5. Kết hợp với HTML/CSS</h3>
+
+<p>
+Khi kết hợp Event Delegation với HTML và CSS,
+website sẽ xử lý sự kiện hiệu quả hơn, tải nhanh hơn
+và phù hợp với các ứng dụng Web hiện đại như giỏ hàng,
+danh sách sản phẩm, bình luận và mạng xã hội.
+</p>
+
+<hr>
+
+<h2>KẾT LUẬN</h2>
+
+<p>
+Qua bốn câu lý thuyết trên có thể thấy HTML dùng để xây dựng cấu trúc,
+CSS dùng để định dạng giao diện, JavaScript dùng để xử lý chức năng và tương tác.
+Việc hiểu rõ Position, Domain & Hosting, Scope của biến và Event Delegation
+giúp xây dựng website hiệu quả, bảo mật và tối ưu hiệu năng.
+</p>
+
+<br>
+
+<a href="index.html">⬅ Quay lại Trang chủ</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đèn Kéo Quân 3D - 241A010600</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:radial-gradient(circle,#3a3a3a,#000);
+    overflow:hidden;
+    min-height:100vh;
+    color:white;
+    font-family:Arial, sans-serif;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    color:#ffd700;
+    margin-bottom:10px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+.scene{
+    width:100%;
+    height:600px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    perspective:1500px;
+    position:relative;
+}
+
+.light-ring{
+
+    position:absolute;
+
+    width:680px;
+    height:680px;
+
+    border-radius:50%;
+    border:10px dotted gold;
+
+    box-shadow:
+    0 0 25px yellow,
+    0 0 50px orange,
+    0 0 100px gold;
+
+    animation:ringRotate 8s linear infinite;
+}
+
+.carousel{
+
+    position:relative;
+
+    width:240px;
+    height:320px;
+
+    transform-style:preserve-3d;
+
+    animation:spin 12s linear infinite;
+}
+
+.face{
+
+    position:absolute;
+
+    width:240px;
+    height:320px;
+
+    overflow:hidden;
+
+    border:6px solid gold;
+    border-radius:12px;
+
+    background:white;
+
+    box-shadow:
+    0 0 20px gold,
+    0 0 40px orange;
+}
+
+.face img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* 6 mặt */
+
+.face:nth-child(1){
+    transform:rotateY(0deg) translateZ(280px);
+}
+
+.face:nth-child(2){
+    transform:rotateY(60deg) translateZ(280px);
+}
+
+.face:nth-child(3){
+    transform:rotateY(120deg) translateZ(280px);
+}
+
+.face:nth-child(4){
+    transform:rotateY(180deg) translateZ(280px);
+}
+
+.face:nth-child(5){
+    transform:rotateY(240deg) translateZ(280px);
+}
+
+.face:nth-child(6){
+    transform:rotateY(300deg) translateZ(280px);
+}
+
+@keyframes spin{
+
+    from{
+        transform:
+        rotateX(-8deg)
+        rotateY(0deg);
+    }
+
+    to{
+        transform:
+        rotateX(-8deg)
+        rotateY(360deg);
+    }
+}
+
+@keyframes ringRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.note{
+
+    font-size:18px;
+
+    color:gold;
+
+    margin-top:10px;
+}
+
+.btn{
+
+    margin-top:20px;
+
+    text-decoration:none;
+
+    color:black;
+
+    background:gold;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>ĐÈN KÉO QUÂN 3D</h1>
+<h2>MSSV: 241A010600</h2>
+
+<div class="scene">
+
+    <div class="light-ring"></div>
+
+    <div class="carousel" id="carousel">
+
+        <div class="face">
+            <img src="images/OIP.jfif">
+        </div>
+
+        <div class="face">
+            <img src="images/OIP (1).jfif">
+        </div>
+
+        <div class="face">
+            <img src="images/OIP (2).jfif">
+        </div>
+
+        <div class="face">
+            <img src="images/OIP (3).jfif">
+        </div>
+
+        <div class="face">
+            <img src="images/OIP (4).jfif">
+        </div>
+
+        <div class="face">
+            <img src="images/OIP (5).jfif">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="note">
+Nhấn hoặc rê chuột vào ảnh để dừng quay
+</div>
+
+<a href="index.html" class="btn">
+Trang chủ
+</a>
+
+<script>
+
+const carousel=document.getElementById("carousel");
+
+carousel.addEventListener("mouseenter",()=>{
+    carousel.style.animationPlayState="paused";
+});
+
+carousel.addEventListener("mouseleave",()=>{
+    carousel.style.animationPlayState="running";
+});
+
+document.querySelectorAll(".face").forEach(face=>{
+
+    face.addEventListener("click",()=>{
+
+        if(carousel.style.animationPlayState==="paused"){
+            carousel.style.animationPlayState="running";
+        }else{
+            carousel.style.animationPlayState="paused";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
